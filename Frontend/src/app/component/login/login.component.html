@@ -1,0 +1,35 @@
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5">
+  <div class="modal-dialog" role="document"  data-aos="zoom-in" data-aos-duration="1000">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">เข้าสู่ระบบ</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="">
+          <div class="form-floating mb-3">
+            
+            <input type="text" class="form-control rounded-3" id="username" name="username" [(ngModel)]="username"
+              placeholder="Username" [ngModelOptions]="{standalone: true}" maxlength="15" autocomplete="username"
+              required>
+            <label for="floatingInput">Username :</label>
+          </div>
+
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="password" name="password" [(ngModel)]="password"
+              placeholder="Password" [ngModelOptions]="{standalone: true}" maxlength="8" autocomplete="password"
+              required>
+            <label for="floatingPassword">Password :</label>
+          </div>
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" (click)="login()">ตกลง</button>
+          <hr class="my-4">
+          <p class="text-body-secondary">คุณยังไม่มีบัญชี ? <a routerLink="/register">สร้างบัญชี</a></p>
+
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

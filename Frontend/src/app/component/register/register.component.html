@@ -1,0 +1,71 @@
+<div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog"
+  id="modalSignin">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content rounded-4 shadow">
+      <div class="modal-header p-5 pb-4 border-bottom-0">
+        <h1 class="fw-bold mb-0 fs-2">สร้างบัญชี</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+
+      <div class="modal-body p-5 pt-0">
+        <form class="register-form" method="POST">
+          <div class="form-floating mb-3">
+            <input type="text" class="form-control rounded-3" id="fullname" name="fullname" [(ngModel)]="fullname"
+              placeholder="Fullname" [ngModelOptions]="{standalone: true}" maxlength="50" autocomplete="fullname"
+              required>
+            <label for="floatingInput">Fullname :</label>
+          </div>
+
+          <div class="form-floating mb-3">
+
+            <input type="email" class="form-control rounded-3" id="email" name="email" [(ngModel)]="email"
+              placeholder="Email" [ngModelOptions]="{standalone: true}" maxlength="50" autocomplete="email" required>
+            <label for="floatingInput">Email :</label>
+          </div>
+
+
+          <div class="form-floating mb-3">
+
+            <input type="text" class="form-control rounded-3" id="username" name="username" [(ngModel)]="username"
+              placeholder="Username" [ngModelOptions]="{standalone: true}" maxlength="20" autocomplete="username"
+              required>
+            <label for="floatingInput">Username :</label>
+          </div>
+
+
+          <div class="form-floating mb-3">
+            <input type="password" class="form-control rounded-3" id="password" name="password" [(ngModel)]="password"
+              placeholder="Password" [ngModelOptions]="{standalone: true}" maxlength="8" autocomplete="password"
+              required>
+            <label for="floatingPassword">Password :</label>
+          </div>
+
+          <!-- <div class="row">
+            <div class="col-6">
+              <div class="form-group">
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="role" id="Admin" value="Admin"
+                    formControlName="role">
+                  <label class="form-check-label" for="Admin">Admin</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input class="form-check-input" type="radio" name="role" id="User" value="User"
+                    formControlName="role">
+                  <label class="form-check-label" for="User">User</label>
+                </div>
+
+              </div>
+            </div>
+          </div> -->
+          <br>
+
+          <button class="w-100 mb-2 btn btn-lg rounded-3 btn-primary" type="submit" (click)="save()">ยืนยัน</button>
+          <hr class="my-4">
+          <p class="text-body-secondary">ฉันมีบัญชีเเล้ว ? <a routerLink="/login">เข้าสู่ระบบ</a></p>
+          
+
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

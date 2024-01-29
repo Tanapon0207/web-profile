@@ -1,0 +1,36 @@
+.content-home{
+    margin-top: 5px;
+}
+
+h5 {
+    color: black;
+}
+
+p {
+    color: gray;
+}
+
+
+a {
+    /*not line*/
+    text-decoration: none;
+}
+
+
+.card {
+    transition: transform 1.0s;
+    position: relative;
+    /* ตั้งค่าเงาเริ่มต้น */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card:hover {
+    transform: scale(1.1);
+    /* ตั้งค่าเงาเมื่อ Card ลอยขึ้น */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* html{
+    scroll-behavior: smooth;
+} */
