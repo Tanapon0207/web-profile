@@ -11,7 +11,7 @@ type Registerbody struct {
 	Email    string `json:"email" binding:"required"`
 	Username string `json:"username" binding:"required"`
 	Password string `json:"password" binding:"required"`
-	// Role     string `json:"role" binding:"required"`
+	Isuse    string `json:"isuse"` 
 }
 
 
@@ -38,14 +38,15 @@ func Register (c *gin.Context){
 		return
 	}
 
-	// Create user in the database
-	user := data.User{
-		Fullname: json.Fullname,
-		Email:    json.Email,
-		Username: json.Username,
-		Password: string(hashPassword),
-		// Role:     json.Role,
-	}
+		// Create user in the database with isuse = 1
+		user := data.User{
+			Fullname: json.Fullname,
+			Email:    json.Email,
+			Username: json.Username,
+			Password: string(hashPassword),
+			Isuse:    "1",
+		}
+
 	result := data.Db.Create(&user)
 
 	//ผลลัพธ์ error ต้องไม่มีและ 

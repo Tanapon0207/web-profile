@@ -5,6 +5,7 @@ import { LoginComponent } from './component/login/login.component';
 import { RegisterComponent } from './component/register/register.component';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DetailProjectComponent } from './component/detail-project/detail-project.component';
+import { TableUserComponent } from './component/table-user/table-user.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
   {
     path: 'detail-project',
     component: DetailProjectComponent
+  },
+  {
+    path: 'table-user',
+    component: TableUserComponent
   },
   
   {

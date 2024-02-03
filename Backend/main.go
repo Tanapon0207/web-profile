@@ -27,9 +27,13 @@ func main() {
 	r := gin.New()
 	r.Use(cors.Default())
 	r.GET("/users", user_controller.Readall)
+	r.GET("/user/:username", user_controller.GetPerson)
 
+	r.PUT("/user/:username", user_controller.UpdatePerson)
 	r.POST("/register", auth_controller.Register)
 	r.POST("/login", auth_controller.Login)
+
+	r.DELETE("/user/:username", user_controller.DeletePerson)
 
 	r.Run("localhost:8880")
 }

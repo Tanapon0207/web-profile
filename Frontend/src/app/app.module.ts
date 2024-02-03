@@ -13,6 +13,7 @@ import { RegisterComponent } from './component/register/register.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DashboardComponent } from './component/dashboard/dashboard.component';
 import { DetailProjectComponent } from './component/detail-project/detail-project.component';
+import { TableUserComponent } from './component/table-user/table-user.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DetailProjectComponent } from './component/detail-project/detail-projec
     LoginComponent,
     RegisterComponent,
     DashboardComponent,
-    DetailProjectComponent
+    DetailProjectComponent,
+    TableUserComponent
   ],
   imports: [
     BrowserModule,

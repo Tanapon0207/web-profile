@@ -10,5 +10,7 @@ type User struct {
 	Email    string
 	Username string
 	Password string
+	Isuse    string
+
 	// Role     string
 }

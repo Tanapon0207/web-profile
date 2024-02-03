@@ -130,7 +130,7 @@ export class LoginComponent {
           localStorage.setItem('user', JSON.stringify(resultData.user)); //เก็บข้อมูลไว่ใน  localStorage
           console.count(resultData.message._id); //ค่า id กับจำนวนที่ login
           // นำทางไปยังหน้า dashboard หลังจากเข้าสู่ระบบสำเร็จ
-          // window.location.href = '/dashboard';
+          window.location.href = '/dashboard';
 
 
         }

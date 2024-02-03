@@ -33,13 +33,55 @@ func Readall(c *gin.Context) {
 	if err != nil || !token.Valid {
 		c.JSON(http.StatusUnauthorized, gin.H{"status": "error", "message": "Token หมดอายุ !!!"})
 		return
-	}else{
+	} else {
 		// If the token is valid, proceed with processing
 		var users []data.User
 		data.Db.Find(&users)
 		c.JSON(http.StatusOK, gin.H{"status": "OK", "message": "This is all user", "data-users": users})
-		// c.JSON(http.StatusOK, gin.H{"status": "OK", "message": "This is all user", "data-users": users, "header": header, "token": fullToken, "Full-token": fullToken})
+	}
+}
+
+func GetPerson(c *gin.Context) {
+	Username := c.Params.ByName("username")
+	var person data.User
+	if err := data.Db.Where("username = ?", Username).First(&person).Error; err != nil {
+		c.AbortWithStatus(404)
+		fmt.Println(err)
+	} else {
+		c.JSON(200, person)
+	}
+}
+
+func UpdatePerson(c *gin.Context) {
+	var person data.User
+	Username := c.Params.ByName("username")
+	if err := data.Db.Where("username = ?", Username).First(&person).Error; err != nil {
+		c.AbortWithStatus(404)
+		fmt.Println(err)
+	}
+	c.BindJSON(&person)
+	data.Db.Save(&person)
+	c.JSON(200, person)
+}
+
+
+
+func DeletePerson(c *gin.Context) {
+	Username := c.Params.ByName("username") //ลบตาม username
+	var person data.User 
+
+	// ค้นหา username ที่ต้องการลบ
+	if err := data.Db.Where("username = ?", Username).First(&person).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "User not found"})
+		return
 	}
 
-	
+	// ทำการอัพเดทค่า isuse เป็น 0
+	result := data.Db.Model(&person).Update("isuse", 0)
+
+	if result.Error == nil && result.RowsAffected > 0 {
+		c.JSON(http.StatusOK, gin.H{"message": "User deleted successfully", "status": "success"})
+	} else {
+		c.JSON(http.StatusBadRequest, gin.H{"message": "User not deleted", "error": result.Error})
+	}
 }
